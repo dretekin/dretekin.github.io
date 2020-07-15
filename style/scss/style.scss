@@ -24,11 +24,13 @@ ul {
 }
 
 .top-bar {
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   padding: 4px 32px;
   align-items: center;
   background-color: #000;
+  z-index: 11;
 
   .announcement {
     color: #fff;
@@ -66,7 +68,7 @@ ul {
 
 /////////////////////////////////////////////////////
 // Currency
-.currency-convertor-wrapper {
+#currency-convertor-wrapper {
   display: none;
   position: relative;
   width: 100px;
@@ -113,11 +115,12 @@ ul {
   transition: transform 500ms ease-in-out;
   position: absolute;
   // transition-timing-function: cubic-bezier(0.24, -0.41, 0.25, 1.29);
-  transform: translateY(-210px);
+  // transform: translateY(-210px);
+  top: -82px;
 }
 
 #currencies.dropdown {
-  transform: translateY(0px);
+  transform: translateY(110px);
 }
 
 #currencies li {
@@ -128,9 +131,9 @@ ul {
 }
 // /////////////////////////////////
 
-.l-menu {
+#l-menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-basis: 100px;
   a {
     color: #000;
@@ -139,6 +142,32 @@ ul {
   svg {
     width: 17px;
   }
+}
+.search-box-wrapper {
+  width: 350px;
+  position: absolute;
+  display: none;
+  justify-content: space-between;
+  top: -68px;
+  right: 0;
+  padding: 18px 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 2;
+  font-size: 16px;
+  transition: transform 500ms ease-in-out;
+}
+.show {
+  transform: translateY(104px);
+}
+
+.close-seach-box {
+  cursor: pointer;
+}
+
+.search,
+.account {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -160,7 +189,19 @@ ul {
     display: none;
   }
 
-  .currency-convertor-wrapper {
+  #currency-convertor-wrapper {
+    display: block;
+  }
+
+  #l-menu {
+    justify-content: space-between;
+  }
+
+  .search-box-wrapper {
+    display: flex;
+  }
+  .search,
+  .account {
     display: block;
   }
 }
