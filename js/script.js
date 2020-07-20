@@ -6,6 +6,7 @@ let lMenu = document.getElementById("l-menu");
 let search = lMenu.querySelector(".search");
 let searchBoxWrapper = lMenu.querySelector(".search-box-wrapper");
 let closeSearchBox = lMenu.querySelector(".close-seach-box");
+let mobileNav = document.querySelector(".mobile-nav");
 
 selectorBtn.addEventListener("click", (e) => {
   currencies.classList.toggle("dropdown");
@@ -31,3 +32,12 @@ search.addEventListener("click", function (e) {
 closeSearchBox.addEventListener("click", function () {
   searchBoxWrapper.classList.remove("show");
 });
+
+window.onload = function () {
+  let viewPortHeight =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight;
+
+  if (mobileNav.clientHeight < viewPortHeight) mobileNav.style.height = "100vh";
+};
