@@ -140,7 +140,7 @@ a {
 .currency-items {
   width: 100%;
   border-bottom: 1px solid #000;
-  transition: transform 500ms ease-in-out;
+  transition: transform 300ms ease-in-out;
   position: absolute;
   top: -82px;
 }
@@ -156,30 +156,24 @@ a {
   user-select: none;
 }
 
-#l-menu {
+.qLinks {
   display: flex;
   justify-content: flex-end;
   flex-basis: 100px;
 }
-#l-menu a {
+.qLinks a {
   color: #000;
 }
-#l-menu svg {
+.qLinks svg {
   vertical-align: middle;
 }
 
-#search-box {
-  border: none;
-  height: 35px;
-  width: 270px;
-}
-
-.search-box-wrapper {
+.lgSearch {
   width: 350px;
   position: absolute;
-  display: none;
+  display: flex;
   justify-content: space-between;
-  top: -68px;
+  top: -38px;
   right: 0;
   padding: 18px 20px;
   border-left: 1px solid #ccc;
@@ -187,22 +181,25 @@ a {
   background-color: #fff;
   line-height: 2;
   font-size: 16px;
-  transition: transform 500ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+}
+
+.lgSearch-input {
+  border: none;
+  height: 35px;
+  width: 270px;
 }
 
 .show {
-  transform: translateY(104px);
+  transform: translateY(74px);
 }
 
-.search-box-wrapper {
-  display: flex;
-}
-
-.close-seach-box {
+.lgSearch-icon,
+.lgSearch-closeBtn {
   cursor: pointer;
 }
 
-.search,
+.lgSearch-openBtn,
 .account {
   display: none;
 }
@@ -230,11 +227,11 @@ a {
     display: block;
   }
 
-  #l-menu {
+  .qLinks {
     justify-content: space-between;
   }
 
-  .search,
+  .lgSearch-openBtn,
 .account {
     display: block;
   }

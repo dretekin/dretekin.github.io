@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Envy</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
     <link rel="stylesheet" href="style/css/style.css" />
   </head>
   <body>
@@ -111,17 +112,17 @@
           <a href="#"><img src="img/Asset_1_150x.png" alt="Site Logo" /></a>
         </div>
         <!-- DESKTOP LEFT MENU -->
-        <div id="l-menu">
-          <div class="search-box-wrapper">
+        <div class="qLinks">
+          <div class="lgSearch">
             <span>
               <input
                 type="search"
                 name="search"
-                id="search-box"
+                class="lgSearch-input"
                 placeholder="Search..."
               />
             </span>
-            <span class="close-seach-box">
+            <span class="lgSearch-closeBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -140,7 +141,7 @@
             </span>
           </div>
           <!-- DESKTOP SEARCH BOX -->
-          <div class="search">
+          <div class="lgSearch-openBtn">
             <a href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

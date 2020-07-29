@@ -2,10 +2,10 @@ let currency = document.querySelector(".currency");
 let currencySelectBtn = document.querySelector(".currency-selectBtn");
 let currencyItems = document.querySelector(".currency-items");
 let currencySelected = document.querySelector(".currency-selected");
-let lMenu = document.getElementById("l-menu");
-let search = lMenu.querySelector(".search");
-let searchBoxWrapper = lMenu.querySelector(".search-box-wrapper");
-let closeSearchBox = lMenu.querySelector(".close-seach-box");
+let qLinks = document.querySelector(".qLinks");
+let lgSearchOpenBtn = qLinks.querySelector(".lgSearch-openBtn");
+let lgSearch = qLinks.querySelector(".lgSearch");
+let lgSearchCloseBtn = qLinks.querySelector(".lgSearch-closeBtn");
 // let mobileNav = document.querySelector(".mobile-nav");
 
 currencySelectBtn.addEventListener("click", (e) => {
@@ -25,12 +25,12 @@ window.addEventListener("click", (e) => {
     currencyItems.classList.remove("dropdown");
 });
 
-search.addEventListener("click", function (e) {
-  if (this.contains(e.target)) searchBoxWrapper.classList.add("show");
+lgSearchOpenBtn.addEventListener("click", function (e) {
+  if (this.contains(e.target)) lgSearch.classList.add("show");
 });
 
-closeSearchBox.addEventListener("click", function () {
-  searchBoxWrapper.classList.remove("show");
+lgSearchCloseBtn.addEventListener("click", function () {
+  lgSearch.classList.remove("show");
 });
 
 window.onload = function () {
