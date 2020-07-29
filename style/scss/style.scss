@@ -156,7 +156,7 @@ a {
 .menu {
   display: flex;
   justify-content: space-between;
-  padding: 32px;
+  padding: 16px 32px;
 
   & > div {
     flex-basis: 33.333%;
@@ -207,12 +207,6 @@ a {
     height: 18px;
     fill: #fff;
   }
-}
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-  padding: 32px;
 }
 
 // Currency
@@ -321,6 +315,16 @@ a {
 .lgSearch-icon,
 .lgSearch-closeBtn {
   cursor: pointer;
+}
+.menu-navBtnIcon {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  display: inline-block;
+  padding: 10px;
 }
 
 .lgSearch-openBtn,
