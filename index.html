@@ -9,13 +9,15 @@
   <body>
     <div class="container">
       <!-- TOPBAR -->
-      <div class="top-bar">
+      <div class="topBar">
         <div class="announcement">
-          <span> Free shipping on orders over $50</span>
+          <span class="announcement-text">
+            Free shipping on orders over $50</span
+          >
         </div>
-        <ul class="sm-icons">
-          <li class="sm-facebook">
-            <a href="https://www.facebook.com/shopify" target="_blank">
+        <ul class="social">
+          <li class="social-icon">
+            <a class="social-link" href="#" target="_blank">
               <svg
                 role="img"
                 viewBox="0 0 24 24"
@@ -28,8 +30,8 @@
               </svg>
             </a>
           </li>
-          <li class="sm-instagram">
-            <a href="https://instagram.com/shopify" target="_blank">
+          <li class="social-icon">
+            <a class="social-link" href="#" target="_blank">
               <svg
                 role="img"
                 viewBox="0 0 24 24"
@@ -42,9 +44,8 @@
               </svg>
             </a>
           </li>
-
-          <li class="sm-snapchat">
-            <a href="https://snapchat.com/add/shopify" target="_blank">
+          <li class="social-icon">
+            <a class="social-link" href="#" target="_blank">
               <svg
                 role="img"
                 viewBox="0 0 24 24"
@@ -61,7 +62,7 @@
       </div>
       <!-- MENU -->
       <div class="menu">
-        <div class="nav-btn">
+        <div class="menuBtn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -79,16 +80,15 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-          <!-- MOBILE NAVIGATION -->
         </div>
         <!-- DESKTOP CURRENCY CONVERTOR -->
-        <div id="currency-convertor-wrapper">
-          <div class="currency-selector">
-            <div class="selector-btn">
-              <span class="selected">CAD</span>
-              <span class="dropdown-icon-wrapper">
+        <div class="currency">
+          <div class="currency-container">
+            <div class="currency-selectBtn">
+              <span class="currency-selected">CAD</span>
+              <span class="currency-chevron chevronDown">
                 <svg
-                  id="dropdown-icon"
+                  class="chevronDown-icon"
                   width="16"
                   height="8"
                   viewBox="0 0 16 8"
@@ -98,11 +98,11 @@
                 </svg>
               </span>
             </div>
-            <ul id="currencies">
-              <li data-currency="CAD">CAD</li>
-              <li data-currency="AUD">AUD</li>
-              <li data-currency="GBP">GBP</li>
-              <li data-currency="EUR">EUR</li>
+            <ul class="currency-items">
+              <li class="currency-item" data-currency="CAD">CAD</li>
+              <li class="currency-item" data-currency="AUD">AUD</li>
+              <li class="currency-item" data-currency="GBP">GBP</li>
+              <li class="currency-item" data-currency="EUR">EUR</li>
             </ul>
           </div>
         </div>
@@ -155,8 +155,7 @@
                 class="feather feather-search"
               >
                 <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg
-            ></a>
+                <line x1="16" y1="17" x2="24" y2="24"></line></a>
           </div>
           <!-- DESKTOP CUSTOMER ACCOUNT -->
           <div class="account">
