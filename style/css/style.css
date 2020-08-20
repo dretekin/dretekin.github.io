@@ -39,6 +39,7 @@ a {
 }
 
 .container {
+  min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
@@ -147,7 +148,7 @@ a {
 
 .container-wrapperCover {
   width: inherit;
-  height: inherit;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   display: none;
   position: absolute;
