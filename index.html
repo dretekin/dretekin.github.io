@@ -11,7 +11,7 @@
     <div class="container">
       <!-- NAVIGATION -->
       <nav class="nav">
-        <ul class="nav-items">
+        <ul class="nav-items parents">
           <!-- SEARCH -->
           <li class="nav-item nav-search">
             <span
@@ -40,13 +40,9 @@
             </span>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
-          </li>
-          <!-- SUB NAV LINK -->
-          <li class="nav-item nav-item_hasSub">
-            <a href="#" class="nav-link nav-link_toPage">Shoes</a>
-            <a href="#" class="nav-link_toSubNav">
+          <li class="nav-item" data-link="p1">
+            <a href="#" class="nav-link">Cars</a>
+            <button class="child-link">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -62,12 +58,88 @@
               >
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </a>
-            <!-- SUB NAV START -->
-            <ul class="nav-items nav-items_child">
-              <li class="nav-item nav-subNavHeading">
-                <a href="#" class="nav-link nav-link_toPage">Shoes</a>
-                <a href="#" class="nav-link_goBack">
+            </button>
+          </li>
+          <!-- --------------------------- -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Cuban Cigar</a>
+          </li>
+          <!-- --------------------------- -->
+          <li class="nav-item" data-link="p2">
+            <a href="#" class="nav-link">Watches</a>
+            <button class="child-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-chevron-right"
+                aria-hidden="true"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <ul class="children">
+          <li class="child" data-link="p1">
+            <ul class="nav-items">
+              <li class="nav-item heading">
+                <a href="#" class="nav-link">Cars</a>
+                <button class="go-back">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -83,18 +155,11 @@
                   >
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
-                </a>
+                </button>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Dockers</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Addidas</a>
-              </li>
-              <!-- SUB NAV LINK -->
-              <li class="nav-item nav-item_hasSub">
-                <a href="#" class="nav-link nav-link_toPage">Nike</a>
-                <a href="#" class="nav-link_toSubNav">
+              <li class="nav-item" data-link="p1-c1">
+                <a href="#" class="nav-link">Bugatti</a>
+                <button class="grand-child-link">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -110,90 +175,83 @@
                   >
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
-                </a>
-                <!-- SUB NAV START -->
-                <ul class="nav-items nav-items_child">
-                  <li class="nav-item nav-subNavHeading">
-                    <a href="#" class="nav-link nav-link_toPage">Nike</a>
-                    <a href="#" class="nav-link_goBack">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#fff"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-chevron-right"
-                        aria-hidden="true"
-                      >
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Jordan</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">Air Max</a>
-                  </li>
-                </ul>
-                <!-- SUB NAV END -->
+                </button>
+              </li>
+              <!-- ------------------- -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Chevi Camero</a>
+              </li>
+              <!-- ------------------- -->
+              <li class="nav-item" data-link="p1-c2">
+                <a href="#" class="nav-link">Ferarri</a>
+                <button class="grand-child-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
               </li>
             </ul>
-            <!-- SUB NAV END -->
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Shirts</a>
-          </li>
-          <!-- SUB NAV LINK -->
-          <li class="nav-item nav-item_hasSub">
-            <a href="#" class="nav-link nav-link_toPage">Watches</a>
-            <a href="#" class="nav-link_toSubNav">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#fff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-chevron-right"
-                aria-hidden="true"
-              >
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-            <!-- SUB NAV START -->
-            <ul class="nav-items nav-items_child">
-              <li class="nav-item nav-subNavHeading">
-                <a href="#" class="nav-link nav-link_toPage">Watches</a>
-                <a href="#" class="nav-link_goBack">
+          <!-- --------------------------- -->
+          <li class="child" data-link="p2">
+            <ul class="nav-items">
+              <li class="nav-item heading">
+                <a href="#" class="nav-link">Watches</a>
+                <button class="go-back">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -209,20 +267,315 @@
                   >
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
-                </a>
+                </button>
+              </li>
+              <!-- ----------------- -->
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Rollex</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Rolex</a>
+                <a href="#" class="nav-link">Cartier</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-link="p2-c1">
                 <a href="#" class="nav-link">Hublot</a>
               </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <li class="nav-item" data-link="p2-c1">
+                <a href="#" class="nav-link">Hublot</a>
+              </li>
+              <!-- ----------------- -->
             </ul>
-            <!-- SUB NAV END -->
+          </li>
+          <!-- --------------------------- -->
+          <li class="child" data-link="p3">
+            <ul class="nav-items">
+              <li class="nav-item heading">
+                <a href="#" class="nav-link">parent 3</a>
+                <button class="go-back">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+              <li class="nav-item" data-link="p3-c1">
+                <a href="#" class="nav-link">child 3</a>
+                <button class="grand-child-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">child 3</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" data-link="p2-c2">child 3</a>
+                <button class="grand-child-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Grand children -->
+        <!-- -------------------------- -->
+        <ul class="grand-children">
+          <li class="grand-child" data-link="p1-c1">
+            <ul class="nav-items">
+              <li class="nav-item heading">
+                <a href="#" class="nav-link">Bugatti</a>
+                <button class="go-back">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Divo</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">chiron</a>
+              </li>
+              <!-- ----------------------------- -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Veyron</a>
+              </li>
+              <!-- ----------------------------- -->
+            </ul>
+          </li>
+          <li class="grand-child" data-link="p1-c2">
+            <ul class="nav-items">
+              <li class="nav-item heading">
+                <a href="#" class="nav-link">Ferarri</a>
+                <button class="go-back">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-chevron-right"
+                    aria-hidden="true"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">La Ferarri</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Enzo</a>
+              </li>
+              <!-- --------------------- -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Spider</a>
+              </li>
+              <!-- --------------------- -->
+            </ul>
           </li>
         </ul>
       </nav>
-      
       <!-- CART ITEMS -->
       <article class="cart">
         <header class="cart-heading"><p>Your Cart</p></header>
@@ -306,8 +659,8 @@
       </article>
       
       <!-- MENU -->
-      <div class="container-wrapper">
-        <div class="container-wrapperCover"></div>
+      <div class="container-cover">
+        <div class="container-dark-cover"></div>
               <!-- TOPBAR -->
       <div class="topBar">
         <div class="announcement">
@@ -500,9 +853,12 @@
           </div>
         </div>
       </div>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, voluptates.</p>
+    </div>
     </div>
     <script src="js/vendor.js"></script>
-    <script src="../gsap-public/minified/gsap.min.js"></script>
+    <script src="js/lodash.js"></script>
+    <script src="js/gsap.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

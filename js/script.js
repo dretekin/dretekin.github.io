@@ -48,72 +48,205 @@ lgSearchCloseBtn.addEventListener("click", function () {
 //   console.log(e.target);
 // });
 
-let container = document.querySelector(".container"),
-  containerWrapper = document.querySelector(".container-wrapper"),
-  containerWrapperDark = document.querySelector(".container-wrapperCover"),
-  showNav = document.querySelector(".menu-navBtnIcon"),
-  showSubNav = document.querySelectorAll(".nav-link_toSubNav"),
-  subNav = document.querySelector(".sub-nav"),
-  goBack = document.querySelectorAll(".nav-link_goBack");
+// let container = document.querySelector(".container"),
+//   containerWrapper = document.querySelector(".container-cover"),
+//   containerWrapperDark = document.querySelector(".container-dark-cover"),
+//   showNav = document.querySelector(".menu-navBtnIcon"),
+//   showSubNav = document.querySelectorAll(".nav-link_toSubNav"),
+//   subNav = document.querySelector(".sub-nav"),
+//   goBack = document.querySelectorAll(".nav-link_goBack");
 
-// let viewPortWidth =
-//   window.innerWidth ||
-//   document.documentElement.clientWidth ||
-//   document.body.clientWidth;
-// // let moveAmt = (80 / 100) * viewPortWidth original;
-let translateXNav = 0;
-let moveAmt = 300;
-let time = 0.8;
-let navClicked = true;
+// // let viewPortWidth =
+// //   window.innerWidth ||
+// //   document.documentElement.clientWidth ||
+// //   document.body.clientWidth;
+// // // let moveAmt = (80 / 100) * viewPortWidth original;
+// let translateXNav = 0;
+// let moveAmt = 300;
+// let time = 0.8;
+// let navClicked = true;
 
-showNav.addEventListener("click", function () {
-  navClicked = true;
-  translateXNav += moveAmt;
-  gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
-  gsap.to(".container-wrapper", {
-    duration: 0.4,
-    ease: "power1.out",
-    x: moveAmt,
-    onComplete: function () {
-      containerWrapperDark.style.display = "block";
+// showNav.addEventListener("click", function () {
+//   navClicked = true;
+//   translateXNav += moveAmt;
+//   gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
+//   gsap.to(".container-cover", {
+//     duration: 0.4,
+//     ease: "power1.out",
+//     x: moveAmt,
+//     onComplete: function () {
+//       containerWrapperDark.style.display = "block";
+//     },
+//   });
+// });
+
+// containerWrapperDark.addEventListener("click", function () {
+//   navClicked ? (translateXNav -= moveAmt) : null;
+//   gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
+//   gsap.to(".container-cover, .cart", {
+//     duration: 0.4,
+//     ease: "power1.out",
+//     x: 0,
+//     onComplete: () => {
+//       this.style.display = "none";
+//     },
+//   });
+// });
+
+// showSubNav.forEach(function (subNav) {
+//   subNav.addEventListener("click", function () {
+//     this.nextElementSibling.style.display = "block";
+//     translateXNav += moveAmt;
+//     gsap.to(".nav", { duration: 0.6, ease: "power1.out", x: translateXNav });
+//   });
+// });
+
+// goBack.forEach(function (el) {
+//   el.addEventListener("click", function () {
+//     translateXNav -= moveAmt;
+//     gsap.to(".nav", {
+//       duration: 0.6,
+//       ease: "power1.out",
+//       x: translateXNav,
+//       onComplete: function () {
+//         el.parentElement.parentElement.style.display = "none";
+//       },
+//     });
+//   });
+// });
+
+const container = document.querySelector(".container");
+const slider = document.querySelector(".nav");
+const parentsContainer = document.querySelector(".parents");
+const childrenContainer = document.querySelector(".children");
+const grandChildrenContainer = document.querySelector(".grand-children");
+const openNav = document.querySelector(".menu-navBtnIcon");
+const openChild = document.querySelector(".child-link");
+const openGrandChild = document.querySelector(".grand-child-link");
+const containerDarkCover = document.querySelector(".container-dark-cover");
+
+let childrensContainersChildToShow = "",
+  grandchildrensContainersChildToShow = "",
+  childrenContainerBool = false,
+  viewPortHeight = window.innerHeight;
+navOpenedBool = false;
+
+document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
+
+// /////////////////////////////////
+
+function reportWindowSize() {
+  viewPortHeight = window.innerHeight;
+  document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
+  if (navOpenedBool) container.style.height = viewPortHeight + "px";
+  else {
+    container.style.height = "100%";
+  }
+  // container.style.height = viewPortHeight;
+  // console.log(viewPortHeight);
+}
+
+// jQuery(window).on("resize", _.debounce(reportWindowSize, 150));
+// jQuery(window).on("resize", reportWindowSize);
+
+window.onresize = _.debounce(reportWindowSize, 200, {
+  leading: false,
+  trailing: true,
+});
+
+// /////////////////////////////////
+
+let tl = gsap.timeline({
+  defaults: { duration: 0.5, ease: "power1.power1.inOut" },
+});
+
+let openNavTl = gsap
+  .timeline({ defaults: { duration: 0.5, ease: "power1.inOut" } })
+  .set([slider, containerDarkCover], { display: "block" })
+  // .set(container, { height: viewPortHeight })
+  .to(slider, { xPercent: 100 })
+  .to(
+    ".container-cover",
+    {
+      x: 300,
     },
-  });
+    0
+  );
+
+// const containerReSize = gsap.quickSetter(container, "height", "px");
+
+openNavTl.pause();
+
+openNav.addEventListener("click", function () {
+  navOpenedBool = true;
+  container.style.height = viewPortHeight + "px";
+  // containerReSize(viewPortHeight);
+  openNavTl.restart();
 });
 
-containerWrapperDark.addEventListener("click", function () {
-  navClicked ? (translateXNav -= moveAmt) : null;
-  gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
-  gsap.to(".container-wrapper, .cart", {
-    duration: 0.4,
-    ease: "power1.out",
-    x: 0,
-    onComplete: () => {
-      this.style.display = "none";
-    },
-  });
+containerDarkCover.addEventListener("click", function () {
+  navOpenedBool = false;
+  container.style.height = "100%";
+  openNavTl.reverse();
 });
 
-showSubNav.forEach(function (subNav) {
-  subNav.addEventListener("click", function () {
-    this.nextElementSibling.style.display = "block";
-    translateXNav += moveAmt;
-    gsap.to(".nav", { duration: 0.6, ease: "power1.out", x: translateXNav });
-  });
-});
-
-goBack.forEach(function (el) {
-  el.addEventListener("click", function () {
-    translateXNav -= moveAmt;
-    gsap.to(".nav", {
-      duration: 0.6,
-      ease: "power1.out",
-      x: translateXNav,
+function transitioner(show, hide, direction = "+=100") {
+  if (!tl.isActive()) {
+    tl.set(show, { display: "block" }).to([show[0], hide], {
+      xPercent: direction,
       onComplete: function () {
-        el.parentElement.parentElement.style.display = "none";
+        hide.style.display = "none";
+        if (direction == "-=100") show[1].style.display = "none";
       },
     });
+  }
+}
+
+gsap.utils.toArray(".child-link").forEach((childLink) => {
+  childLink.addEventListener("click", function () {
+    childrensContainersChildToShow = childrenContainer.querySelector(
+      `[data-link="${this.parentElement.dataset.link}"]`
+    );
+    childrenContainerBool = true;
+    transitioner(
+      [childrenContainer, childrensContainersChildToShow],
+      parentsContainer
+    );
   });
 });
+
+gsap.utils.toArray(".grand-child-link").forEach((grandChildLink) => {
+  grandChildLink.addEventListener("click", function () {
+    grandchildrensContainersChildToShow = grandChildrenContainer.querySelector(
+      `[data-link="${this.parentElement.dataset.link}"]`
+    );
+    childrenContainerBool = false;
+
+    transitioner(
+      [grandChildrenContainer, grandchildrensContainersChildToShow],
+      childrenContainer
+    );
+  });
+});
+
+gsap.utils.toArray(".go-back").forEach((goBack) => {
+  goBack.addEventListener("click", function () {
+    if (childrenContainerBool)
+      transitioner(
+        [parentsContainer, childrensContainersChildToShow],
+        childrenContainer,
+        "-=100"
+      );
+    else
+      transitioner(
+        [childrenContainer, grandchildrensContainersChildToShow],
+        grandChildrenContainer,
+        "-=100"
+      );
+    childrenContainerBool = true;
+  });
+});
+
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
@@ -123,7 +256,7 @@ cartBtn.addEventListener("click", function () {
   navClicked = false;
   // translateXNav += moveAmt;
   // gsap.to(".cart", { duration: 0.4, ease: "power1.out", x: translateXNav });
-  gsap.to(".container-wrapper,.cart", {
+  gsap.to(".container-cover,.cart", {
     duration: 0.4,
     ease: "power1.out",
     x: -moveAmt,

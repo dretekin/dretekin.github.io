@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+:root {
+  --vh: ;
+}
+
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -39,26 +43,92 @@ a {
 }
 
 .container {
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   position: relative;
-  overflow-x: hidden;
+}
+
+.container-cover {
+  overflow: hidden;
+  width: 100%;
+  /* height: 100vh; */
+  position: relative;
+  background-color: lightblue;
+}
+
+.container-dark-cover {
+  overflow: hidden;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #logo {
   text-align: center;
 }
 
-.nav {
+.nav,
+.children,
+.grand-children {
+  display: none;
   width: 300px;
   position: absolute;
-  right: 100%;
   top: 0;
+  right: 100%;
 }
 
-.nav-items {
-  height: 100vh;
-  width: 100%;
+.parents {
+  /* height: 100vh; */
+  height: var(--vh);
+  overflow: auto;
+}
+
+.child,
+.grand-child {
+  border-right: 1px solid #ccc;
+  display: none;
+  /* height: 100vh; */
+  height: var(--vh);
   background-color: #222;
+  overflow: auto;
+}
+
+/* ---------------------------------- */
+.nav-searchBox::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+}
+
+.nav-searchBox:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+}
+
+.nav-searchBox::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1;
+}
+
+.nav-searchBox:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+.nav-searchBox::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+.nav-searchBox::placeholder {
+  /* Most modern browsers support this now. */
+  color: #fff;
 }
 
 .nav-search {
@@ -72,7 +142,7 @@ a {
 }
 
 .nav-searchBox {
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
   background-color: #222;
   padding: 20px 10px;
   font-size: 16px;
@@ -83,75 +153,61 @@ a {
   padding: 16px;
 }
 
+.nav-items {
+  background-color: #222;
+}
+
+.nav-items .nav-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 .nav-link {
-  height: 50px;
-  display: inline-block;
-  width: 100%;
-  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #fff;
   padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  display: block;
+  color: #fff;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.nav-item_hasSub {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-items_child {
-  display: none;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  z-index: -1;
-}
-
-.nav-subNavHeading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-
-.nav-subNavHeading .nav-link_toPage {
-  text-align: center;
-  padding-right: 25px;
-}
-
-.nav-subNavHeading .nav-link_goBack {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
+.child-link,
+.grand-child-link,
+.go-back {
   padding: 11px 20px;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.nav-subNavHeading .nav-link_goBack svg {
+.go-back {
+  border: none;
+  border-right: 1px solid #ccc;
+}
+
+.go-back svg {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-.nav-link_toSubNav {
-  display: inline-block;
-  padding: 11px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.container-wrapper {
-  height: inherit;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  background-color: #fff;
-}
-
-.container-wrapperCover {
-  width: inherit;
-  min-height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  position: absolute;
+.heading {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .menu {
@@ -477,6 +533,9 @@ a {
 .account {
     display: block;
   }
+}
+p {
+  padding: 500px 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
