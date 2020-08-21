@@ -404,10 +404,11 @@ a {
 // //////////////////////////////////////////
 // cart
 // //////////////////////////////////////////
+
 .cart {
   width: 300px;
-  position: absolute;
-  height: 100%;
+  height: var(--vh);
+  position: fixed;
   left: 100%;
   top: 0;
   background-color: #fff;
@@ -419,10 +420,18 @@ a {
   cursor: pointer;
 }
 
-.cart-heading {
+.cart-header {
   font-size: 20px;
   text-align: center;
   padding: 16px;
+}
+
+.cart-items {
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .cart-item {
@@ -434,7 +443,6 @@ a {
 .cart-productPhoto {
   flex: 0 0 (((300 - 96) * (30 / 100))) * 1px;
   height: 100%;
-  // border: 1px solid #222;
 }
 .cart-productThumbNail {
   width: 100%;
@@ -460,6 +468,7 @@ a {
   bottom: 0;
   width: 100%;
   border-top: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .cart-subTotalText,
@@ -477,36 +486,6 @@ a {
   font-size: 16px;
 }
 
-// .qtySelector {
-//   display: flex;
-//   border: 1px solid #000;
-// }
-
-// .qtySelector-display {
-//   flex-basis: 33.333%;
-//   text-align: center;
-// }
-
-// .qtySelector-input {
-//   width: 100%;
-//   display: inline-block;
-//   height: 100%;
-//   border: none;
-//   text-align: center;
-//   &:focus {
-//     outline: none;
-//   }
-// }
-
-// .qtySelector-decrease,
-// .qtySelector-increase {
-//   padding: 0.3rem 1rem;
-//   flex-basis: 33.333%;
-//   text-align: center;
-//   cursor: pointer;
-//   user-select: none;
-// }
-
 /* -- quantity box -- */
 
 .quantity {
@@ -514,21 +493,14 @@ a {
 }
 
 .quantity .input-text.qty {
-  // width: 35px;
   width: 33.333%;
-  // height: 39px;
-  // padding: 0 5px;
   padding: 7px 10px 8px;
   text-align: center;
   background-color: transparent;
-  // border: 1px solid #efefef;
   border: none;
 }
 
 .quantity.buttons_added {
-  // text-align: left;
-  position: relative;
-  // white-space: nowrap;
   vertical-align: top;
   border: 1px solid #000;
 }
@@ -543,26 +515,10 @@ a {
 .quantity.buttons_added .minus,
 .quantity.buttons_added .plus {
   padding: 7px 10px 8px;
-  // height: 41px;
-  background-color: #ffffff;
-  // border: 1px solid #efefef;
   border: none;
   cursor: pointer;
   width: 33.333%;
 }
-
-// .quantity.buttons_added .minus {
-//   border-right: 0;
-// }
-
-// .quantity.buttons_added .plus {
-//   border-left: 0;
-// }
-
-// .quantity.buttons_added .minus:hover,
-// .quantity.buttons_added .plus:hover {
-//   background: #eeeeee;
-// }
 
 .quantity input::-webkit-outer-spin-button,
 .quantity input::-webkit-inner-spin-button {
@@ -617,6 +573,6 @@ a {
 }
 
 // ////////////
-p {
+.p {
   padding: 500px 20px;
 }

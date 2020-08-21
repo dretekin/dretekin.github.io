@@ -33,97 +33,16 @@ lgSearchCloseBtn.addEventListener("click", function () {
   lgSearch.classList.remove("show");
 });
 
-// window.onload = function () {
-//   let viewPortHeight =
-//     window.innerHeight ||
-//     document.documentElement.clientHeight ||
-//     document.body.clientHeight;
-
-//   if (mobileNav.clientHeight < viewPortHeight) mobileNav.style.height = "100vh";
-// };
-
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-// document.addEventListener("click", function (e) {
-//   console.log(e.target);
-// });
-
-// let container = document.querySelector(".container"),
-//   containerWrapper = document.querySelector(".container-cover"),
-//   containerWrapperDark = document.querySelector(".container-dark-cover"),
-//   showNav = document.querySelector(".menu-navBtnIcon"),
-//   showSubNav = document.querySelectorAll(".nav-link_toSubNav"),
-//   subNav = document.querySelector(".sub-nav"),
-//   goBack = document.querySelectorAll(".nav-link_goBack");
-
-// // let viewPortWidth =
-// //   window.innerWidth ||
-// //   document.documentElement.clientWidth ||
-// //   document.body.clientWidth;
-// // // let moveAmt = (80 / 100) * viewPortWidth original;
-// let translateXNav = 0;
-// let moveAmt = 300;
-// let time = 0.8;
-// let navClicked = true;
-
-// showNav.addEventListener("click", function () {
-//   navClicked = true;
-//   translateXNav += moveAmt;
-//   gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
-//   gsap.to(".container-cover", {
-//     duration: 0.4,
-//     ease: "power1.out",
-//     x: moveAmt,
-//     onComplete: function () {
-//       containerWrapperDark.style.display = "block";
-//     },
-//   });
-// });
-
-// containerWrapperDark.addEventListener("click", function () {
-//   navClicked ? (translateXNav -= moveAmt) : null;
-//   gsap.to(".nav", { duration: 0.4, ease: "power1.out", x: translateXNav });
-//   gsap.to(".container-cover, .cart", {
-//     duration: 0.4,
-//     ease: "power1.out",
-//     x: 0,
-//     onComplete: () => {
-//       this.style.display = "none";
-//     },
-//   });
-// });
-
-// showSubNav.forEach(function (subNav) {
-//   subNav.addEventListener("click", function () {
-//     this.nextElementSibling.style.display = "block";
-//     translateXNav += moveAmt;
-//     gsap.to(".nav", { duration: 0.6, ease: "power1.out", x: translateXNav });
-//   });
-// });
-
-// goBack.forEach(function (el) {
-//   el.addEventListener("click", function () {
-//     translateXNav -= moveAmt;
-//     gsap.to(".nav", {
-//       duration: 0.6,
-//       ease: "power1.out",
-//       x: translateXNav,
-//       onComplete: function () {
-//         el.parentElement.parentElement.style.display = "none";
-//       },
-//     });
-//   });
-// });
-
 const container = document.querySelector(".container");
-const slider = document.querySelector(".nav");
+let containerCover = document.querySelector(".container-cover");
+const containerDarkCover = document.querySelector(".container-dark-cover");
+const nav = document.querySelector(".nav");
 const parentsContainer = document.querySelector(".parents");
 const childrenContainer = document.querySelector(".children");
 const grandChildrenContainer = document.querySelector(".grand-children");
 const openNav = document.querySelector(".menu-navBtnIcon");
 const openChild = document.querySelector(".child-link");
 const openGrandChild = document.querySelector(".grand-child-link");
-const containerDarkCover = document.querySelector(".container-dark-cover");
 
 let childrensContainersChildToShow = "",
   grandchildrensContainersChildToShow = "",
@@ -162,11 +81,11 @@ let tl = gsap.timeline({
 
 let openNavTl = gsap
   .timeline({ defaults: { duration: 0.5, ease: "power1.inOut" } })
-  .set([slider, containerDarkCover], { display: "block" })
+  .set([nav, containerDarkCover], { display: "block" })
   // .set(container, { height: viewPortHeight })
-  .to(slider, { xPercent: 100 })
+  .to(nav, { xPercent: 100 })
   .to(
-    ".container-cover",
+    containerCover,
     {
       x: 300,
     },
@@ -250,56 +169,74 @@ gsap.utils.toArray(".go-back").forEach((goBack) => {
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
+// let container = document.querySelector(".container");
+// let containerDarkCover = document.querySelector(".container-dark-cover");
+
 let cartBtn = document.querySelector(".cartBtn");
 
-cartBtn.addEventListener("click", function () {
-  navClicked = false;
-  // translateXNav += moveAmt;
-  // gsap.to(".cart", { duration: 0.4, ease: "power1.out", x: translateXNav });
-  gsap.to(".container-cover,.cart", {
-    duration: 0.4,
-    ease: "power1.out",
-    x: -moveAmt,
-    onComplete: function () {
-      containerWrapperDark.style.display = "block";
-    },
-  });
+let cart = document.querySelector(".cart");
+let cartHeader = cart.querySelector(".cart-header");
+let cartItems = cart.querySelector(".cart-items");
+let cartFooter = cart.querySelector(".cart-footer");
+
+let cartHeaderHeight = cartHeader.clientHeight;
+console.log(cartHeader.clientHeight);
+let cartFooterHeight = cartFooter.clientHeight;
+
+let cartOpenedBool = false;
+
+// document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
+
+function resizeCartHeight() {
+  viewPortHeight = window.innerHeight;
+  document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
+  cartItems.style.top = cartHeaderHeight + "px";
+  cartItems.style.height = `${
+    viewPortHeight - (cartHeaderHeight + cartFooterHeight)
+  }px`;
+  if (cartOpenedBool) container.style.height = viewPortHeight + "px";
+  else {
+    container.style.height = "100%";
+  }
+}
+
+$(document).ready(function () {
+  resizeCartHeight();
 });
 
-// ////////////////////////////////////
-// ////////////////////////////////////
-let qtySelector = document.querySelector(".qtySelector"),
-  increase = document.querySelector(".qtySelector-increase"),
-  decrease = document.querySelector(".qtySelector-decrease"),
-  qtySelectorInput = document.querySelector(".qtySelector-input");
+// ////////////////////////
+window.onresize = _.debounce(resizeCartHeight, 200, {
+  leading: false,
+  trailing: true,
+});
 
-let quantity = 1;
+// /////////////////////////
+let openCartTl = gsap
+  .timeline({ defaults: { duration: 0.5, ease: "power1.inOut" } })
+  .set([cart, containerDarkCover], { display: "block" })
+  .to(cart, { xPercent: -100 })
+  .to(
+    ".container-cover",
+    {
+      x: -300,
+    },
+    0
+  );
 
-// let inputValue = qtySelectorInput.value;
-// qtySelectorInput.addEventListener("input", function (e) {
-//   // let newVal;
-//   this.value = quantity;
-//   console.log(e.target.value);
-//   if (!/[^1-9]/.test(e.target.value)) {
-//     quantity = e.target.value;
-//     console.log(quantity);
-//     this.value = quantity;
-//     console.log(e.target.value);
-//   }
-// });
-// qtySelector.addEventListener("click", function (e) {
-//   if (/\d/.test(quantity)) {
-//     quantity = Number(quantity);
-//     if (e.target.classList.contains("qtySelector-increase")) {
-//       quantity++;
-//       qtySelectorInput.value = quantity;
-//     }
-//     if (e.target.classList.contains("qtySelector-decrease")) {
-//       quantity ? quantity-- : 0;
-//       qtySelectorInput.value = quantity;
-//     }
-//   }z
-// });
+openCartTl.pause();
+
+cartBtn.addEventListener("click", function () {
+  cartOpenedBool = true;
+  container.style.height = viewPortHeight + "px";
+  // containerReSize(viewPortHeight);
+  openCartTl.restart();
+});
+
+containerDarkCover.addEventListener("click", function () {
+  cartOpenedBool = false;
+  container.style.height = "100%";
+  openCartTl.reverse();
+});
 // ////////////////////////////////////
 // ////////////////////////////////////
 function wcqib_refresh_quantity_increments() {
