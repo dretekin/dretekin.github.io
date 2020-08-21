@@ -660,8 +660,9 @@
       
       <!-- MENU -->
       <div class="container-cover">
+
+        <!-- CONTAINER DARK COVER -->
         <div class="container-dark-cover"></div>
-              <!-- TOPBAR -->
       <div class="topBar">
         <div class="announcement">
           <span class="announcement-text">
@@ -712,8 +713,37 @@
             </a>
           </li>
         </ul>
-      </div>      
-      <div class="menu">
+      </div>
+         <!-- DESKTOP SEARCH BOX -->
+         <div class="desktopSearchBox">
+          <span>
+            <input
+              type="search"
+              name="search"
+              class="desktopSearch-input"
+              placeholder="Search..."
+            />
+          </span>
+          <button class="desktopSearch-closeBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-x"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+         <!-- MENU -->
+         <div class="menu">
         <div class="menu-navBtn">
           <span class="menu-navBtnIcon">
           <svg
@@ -765,36 +795,10 @@
         </div>
         <!-- DESKTOP LEFT MENU -->
         <div class="qLinks">
-          <div class="lgSearch">
-            <span>
-              <input
-                type="search"
-                name="search"
-                class="lgSearch-input"
-                placeholder="Search..."
-              />
-            </span>
-            <span class="lgSearch-closeBtn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-x"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </span>
-          </div>
-          <!-- DESKTOP SEARCH BOX -->
-          <div class="lgSearch-openBtn">
-            <a href="#">
+          <div class="qLinks-items">
+          <!-- DESKTOP SEARCH BOX BTN -->
+          <div class="desktopSearch-openBtn">
+            <button href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -808,7 +812,7 @@
                 class="feather feather-search"
               >
                 <circle cx="11" cy="11" r="8"></circle>
-                <line x1="16" y1="17" x2="24" y2="24"></line></a>
+                <line x1="16" y1="17" x2="24" y2="24"></line></button>
           </div>
           <!-- DESKTOP CUSTOMER ACCOUNT -->
           <div class="account">
@@ -831,7 +835,7 @@
           </div>
           <!-- DESKTOP CART -->
           <div class="cartBtn">
-            <span class="cartBtn-icon">
+            <button class="cartBtn-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -849,8 +853,9 @@
                 <path
                   d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
                 ></path></svg
-            ></span>
+            ></button>
           </div>
+        </div>
         </div>
       </div>
       <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, voluptates.</p>

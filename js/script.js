@@ -1,11 +1,7 @@
-let currency = document.querySelector(".currency"),
+const currency = document.querySelector(".currency"),
   currencySelectBtn = document.querySelector(".currency-selectBtn"),
   currencyItems = document.querySelector(".currency-items"),
-  currencySelected = document.querySelector(".currency-selected"),
-  qLinks = document.querySelector(".qLinks"),
-  lgSearchOpenBtn = qLinks.querySelector(".lgSearch-openBtn"),
-  lgSearch = qLinks.querySelector(".lgSearch"),
-  lgSearchCloseBtn = qLinks.querySelector(".lgSearch-closeBtn");
+  currencySelected = document.querySelector(".currency-selected");
 
 currencySelectBtn.addEventListener("click", (e) => {
   currencyItems.classList.toggle("dropdown");
@@ -24,12 +20,17 @@ window.addEventListener("click", (e) => {
     currencyItems.classList.remove("dropdown");
 });
 
-lgSearchOpenBtn.addEventListener("click", function (e) {
-  if (this.contains(e.target)) lgSearch.classList.add("show");
+// /////////////////////////////////////////////////////
+const desktopSearchBox = document.querySelector(".desktopSearchBox");
+const desktopSearchOpenBtn = document.querySelector(".desktopSearch-openBtn");
+const desktopSearchCloseBtn = document.querySelector(".desktopSearch-closeBtn");
+
+desktopSearchOpenBtn.addEventListener("click", function () {
+  gsap.to(desktopSearchBox, { duration: 0.1, ease: "power1.inOut", y: 75 });
 });
 
-lgSearchCloseBtn.addEventListener("click", function () {
-  lgSearch.classList.remove("show");
+desktopSearchCloseBtn.addEventListener("click", function () {
+  gsap.to(desktopSearchBox, { duration: 0.1, ease: "power1.inOut", y: 0 });
 });
 // /////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////

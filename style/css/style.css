@@ -32,6 +32,11 @@ input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -92,7 +97,6 @@ a {
 .grand-child {
   border-right: 1px solid #ccc;
   display: none;
-  /* height: 100vh; */
   height: var(--vh);
   background-color: #222;
   overflow: auto;
@@ -269,8 +273,6 @@ a {
 .currency {
   display: none;
   position: relative;
-  width: 100px;
-  height: 1px;
   font-size: 14px;
   letter-spacing: 2px;
 }
@@ -278,7 +280,7 @@ a {
 .currency-container {
   display: inline-block;
   position: absolute;
-  width: 100%;
+  width: 90px;
   height: 221px;
   overflow: hidden;
 }
@@ -339,7 +341,11 @@ a {
   vertical-align: middle;
 }
 
-.lgSearch {
+.qLinks-items {
+  display: flex;
+}
+
+.desktopSearchBox {
   width: 350px;
   position: absolute;
   display: flex;
@@ -355,7 +361,7 @@ a {
   transition: transform 300ms ease-in-out;
 }
 
-.lgSearch-input {
+.desktopSearch-input {
   border: none;
   height: 35px;
   width: 270px;
@@ -365,9 +371,10 @@ a {
   transform: translateY(74px);
 }
 
-.lgSearch-icon,
-.lgSearch-closeBtn {
+.desktopSearch-icon,
+.desktopSearch-closeBtn {
   cursor: pointer;
+  padding: 0 16px;
 }
 
 .menu-navBtnIcon {
@@ -504,9 +511,10 @@ a {
   outline: none;
 }
 
-.lgSearch-openBtn,
+.desktopSearch-openBtn,
 .account {
   display: none;
+  padding: 10px;
 }
 
 @media (min-width: 768px) {
@@ -532,11 +540,7 @@ a {
     display: block;
   }
 
-  .qLinks {
-    justify-content: space-between;
-  }
-
-  .lgSearch-openBtn,
+  .desktopSearch-openBtn,
 .account {
     display: block;
   }
