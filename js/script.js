@@ -32,6 +32,9 @@ lgSearchOpenBtn.addEventListener("click", function (e) {
 lgSearchCloseBtn.addEventListener("click", function () {
   lgSearch.classList.remove("show");
 });
+// /////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////
 
 const container = document.querySelector(".container");
 let containerCover = document.querySelector(".container-cover");
@@ -53,27 +56,35 @@ navOpenedBool = false;
 document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
 
 // /////////////////////////////////
+// /////////////////////////////////
+// /////////////////////////////////
+window.onresize = _.debounce(windowResize, 200, {
+  leading: false,
+  trailing: true,
+});
+// /////////////////////////////////
+// /////////////////////////////////
+// /////////////////////////////////
 
-function reportWindowSize() {
+// /////////////////////////////////
+function windowResize() {
+  if (navOpenedBool) {
+    resizeNavAndContainerHeight();
+  } else if (cartOpenedBool) {
+    resizeCartAndContainerHeight();
+  }
+}
+
+// /////////////////////////////////
+
+function resizeNavAndContainerHeight() {
   viewPortHeight = window.innerHeight;
   document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
   if (navOpenedBool) container.style.height = viewPortHeight + "px";
   else {
     container.style.height = "100%";
   }
-  // container.style.height = viewPortHeight;
-  // console.log(viewPortHeight);
 }
-
-// jQuery(window).on("resize", _.debounce(reportWindowSize, 150));
-// jQuery(window).on("resize", reportWindowSize);
-
-window.onresize = _.debounce(reportWindowSize, 200, {
-  leading: false,
-  trailing: true,
-});
-
-// /////////////////////////////////
 
 let tl = gsap.timeline({
   defaults: { duration: 0.5, ease: "power1.power1.inOut" },
@@ -169,9 +180,6 @@ gsap.utils.toArray(".go-back").forEach((goBack) => {
 /////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
-// let container = document.querySelector(".container");
-// let containerDarkCover = document.querySelector(".container-dark-cover");
-
 let cartBtn = document.querySelector(".cartBtn");
 
 let cart = document.querySelector(".cart");
@@ -180,14 +188,11 @@ let cartItems = cart.querySelector(".cart-items");
 let cartFooter = cart.querySelector(".cart-footer");
 
 let cartHeaderHeight = cartHeader.clientHeight;
-console.log(cartHeader.clientHeight);
 let cartFooterHeight = cartFooter.clientHeight;
 
 let cartOpenedBool = false;
 
-// document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
-
-function resizeCartHeight() {
+function resizeCartAndContainerHeight() {
   viewPortHeight = window.innerHeight;
   document.documentElement.style.setProperty("--vh", `${viewPortHeight}px`);
   cartItems.style.top = cartHeaderHeight + "px";
@@ -200,16 +205,11 @@ function resizeCartHeight() {
   }
 }
 
-$(document).ready(function () {
-  resizeCartHeight();
-});
+// $(document).ready(function () {
+//   resizeCartHeight();
+// });
 
 // ////////////////////////
-window.onresize = _.debounce(resizeCartHeight, 200, {
-  leading: false,
-  trailing: true,
-});
-
 // /////////////////////////
 let openCartTl = gsap
   .timeline({ defaults: { duration: 0.5, ease: "power1.inOut" } })
@@ -226,9 +226,9 @@ let openCartTl = gsap
 openCartTl.pause();
 
 cartBtn.addEventListener("click", function () {
+  resizeCartAndContainerHeight();
   cartOpenedBool = true;
   container.style.height = viewPortHeight + "px";
-  // containerReSize(viewPortHeight);
   openCartTl.restart();
 });
 
@@ -237,7 +237,10 @@ containerDarkCover.addEventListener("click", function () {
   container.style.height = "100%";
   openCartTl.reverse();
 });
+
 // ////////////////////////////////////
+// ////////////////////////////////////
+// quantity selector in cart drawer
 // ////////////////////////////////////
 function wcqib_refresh_quantity_increments() {
   jQuery(
