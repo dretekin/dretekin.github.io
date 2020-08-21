@@ -1,12 +1,11 @@
-let currency = document.querySelector(".currency");
-let currencySelectBtn = document.querySelector(".currency-selectBtn");
-let currencyItems = document.querySelector(".currency-items");
-let currencySelected = document.querySelector(".currency-selected");
-let qLinks = document.querySelector(".qLinks");
-let lgSearchOpenBtn = qLinks.querySelector(".lgSearch-openBtn");
-let lgSearch = qLinks.querySelector(".lgSearch");
-let lgSearchCloseBtn = qLinks.querySelector(".lgSearch-closeBtn");
-// let mobileNav = document.querySelector(".mobile-nav");
+let currency = document.querySelector(".currency"),
+  currencySelectBtn = document.querySelector(".currency-selectBtn"),
+  currencyItems = document.querySelector(".currency-items"),
+  currencySelected = document.querySelector(".currency-selected"),
+  qLinks = document.querySelector(".qLinks"),
+  lgSearchOpenBtn = qLinks.querySelector(".lgSearch-openBtn"),
+  lgSearch = qLinks.querySelector(".lgSearch"),
+  lgSearchCloseBtn = qLinks.querySelector(".lgSearch-closeBtn");
 
 currencySelectBtn.addEventListener("click", (e) => {
   currencyItems.classList.toggle("dropdown");
@@ -36,16 +35,16 @@ lgSearchCloseBtn.addEventListener("click", function () {
 // /////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////
 
-const container = document.querySelector(".container");
-let containerCover = document.querySelector(".container-cover");
-const containerDarkCover = document.querySelector(".container-dark-cover");
-const nav = document.querySelector(".nav");
-const parentsContainer = document.querySelector(".parents");
-const childrenContainer = document.querySelector(".children");
-const grandChildrenContainer = document.querySelector(".grand-children");
-const openNav = document.querySelector(".menu-navBtnIcon");
-const openChild = document.querySelector(".child-link");
-const openGrandChild = document.querySelector(".grand-child-link");
+const container = document.querySelector(".container"),
+  containerCover = document.querySelector(".container-cover"),
+  containerDarkCover = document.querySelector(".container-dark-cover"),
+  nav = document.querySelector(".nav"),
+  parentsContainer = document.querySelector(".parents"),
+  childrenContainer = document.querySelector(".children"),
+  grandChildrenContainer = document.querySelector(".grand-children"),
+  openNav = document.querySelector(".menu-navBtnIcon"),
+  openChild = document.querySelector(".child-link"),
+  openGrandChild = document.querySelector(".grand-child-link");
 
 let childrensContainersChildToShow = "",
   grandchildrensContainersChildToShow = "",
@@ -93,7 +92,6 @@ let tl = gsap.timeline({
 let openNavTl = gsap
   .timeline({ defaults: { duration: 0.5, ease: "power1.inOut" } })
   .set([nav, containerDarkCover], { display: "block" })
-  // .set(container, { height: viewPortHeight })
   .to(nav, { xPercent: 100 })
   .to(
     containerCover,
@@ -103,14 +101,11 @@ let openNavTl = gsap
     0
   );
 
-// const containerReSize = gsap.quickSetter(container, "height", "px");
-
 openNavTl.pause();
 
 openNav.addEventListener("click", function () {
   navOpenedBool = true;
   container.style.height = viewPortHeight + "px";
-  // containerReSize(viewPortHeight);
   openNavTl.restart();
 });
 
@@ -182,10 +177,10 @@ gsap.utils.toArray(".go-back").forEach((goBack) => {
 
 let cartBtn = document.querySelector(".cartBtn");
 
-let cart = document.querySelector(".cart");
-let cartHeader = cart.querySelector(".cart-header");
-let cartItems = cart.querySelector(".cart-items");
-let cartFooter = cart.querySelector(".cart-footer");
+let cart = document.querySelector(".cart"),
+  cartHeader = cart.querySelector(".cart-header"),
+  cartItems = cart.querySelector(".cart-items"),
+  cartFooter = cart.querySelector(".cart-footer");
 
 let cartHeaderHeight = cartHeader.clientHeight;
 let cartFooterHeight = cartFooter.clientHeight;
@@ -204,10 +199,6 @@ function resizeCartAndContainerHeight() {
     container.style.height = "100%";
   }
 }
-
-// $(document).ready(function () {
-//   resizeCartHeight();
-// });
 
 // ////////////////////////
 // /////////////////////////
